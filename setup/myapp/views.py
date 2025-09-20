@@ -3,5 +3,7 @@ from django.http import HttpResponse
 from .models import Item
 # Create your views here.
 def index(request):
-    menu_list = Item.objects.all()
-    return HttpResponse(menu_list)
+    context = {
+        "item_list" : Item.objects.all()
+    }
+    return render(request, "myapp/index.html", context)
