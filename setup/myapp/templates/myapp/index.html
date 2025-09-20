@@ -6,9 +6,17 @@
         <title> Document </title>
     </head>
     <body>
-        {% for item in item_list%}
-            {{item.item_name}} -> {{item.item_price}}
-            </br>
-        {% endfor %}
+        <ul>
+            {% for item in item_list%}
+            <li>
+                <a href="{% url 'detail' item.id %}">
+                    {{item.item_name}} -> {{item.item_price}}
+                </a>
+            </li>
+            {% endfor %}
+        </ul>
+        
+            
+        
     </body>
 </html>
