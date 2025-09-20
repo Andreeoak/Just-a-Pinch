@@ -7,3 +7,12 @@ def index(request):
         "item_list" : Item.objects.all()
     }
     return render(request, "myapp/index.html", context)
+
+def detail(request, id):
+    context = {
+        "item": Item.objects.get(id=id),
+    }
+    return render(request, "myapp/detail.html", context)
+
+def item(request):
+    return HttpResponse("item view")
