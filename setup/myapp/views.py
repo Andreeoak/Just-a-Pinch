@@ -1,7 +1,9 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from .models import Item
-# Create your views here.
+from .forms import ItemForm
+
+
 def index(request):
     context = {
         "item_list" : Item.objects.all()
@@ -14,5 +16,9 @@ def detail(request, id):
     }
     return render(request, "myapp/detail.html", context)
 
-def item(request):
-    return HttpResponse("item view")
+def create_item(request):
+    context = {
+        "form" : ItemForm()
+    }
+    return render(request, 'myapp/item_form.html', context) 
+    
