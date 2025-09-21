@@ -11,8 +11,8 @@
         <div>{{ item.item_desc }}</div>
 
         <div class="space-x-6">
-            <a class="bg-yellow-500 px-4 py-2 rounded-md font bold text-white hover:bg-yellow-600"
-            href="">
+            <a href="{% url 'myapp:update_item' item.id %}"
+            class="bg-yellow-500 px-4 py-2 rounded-md font-bold text-white hover:bg-yellow-600">
                 Edit
             </a>
             <a class="bg-red-500 px-4 py-2 rounded-md font bold text-white hover:bg-red-600"

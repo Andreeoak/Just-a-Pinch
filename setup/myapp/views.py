@@ -27,4 +27,17 @@ def create_item(request):
         "form" : form
     }
     return render(request, 'myapp/item_form.html', context) 
+
+def update_item(request, id):
+    item = Item.objects.get(id =id)
+    form = ItemForm(request.POST or None, instance=item)
+    
+    if(form.is_valid()):
+        form.save()
+        return redirect('myapp:index')
+    
+    context = {
+        "form" : form
+    }
+    return render(request, 'myapp/update_item.html', context)
     
