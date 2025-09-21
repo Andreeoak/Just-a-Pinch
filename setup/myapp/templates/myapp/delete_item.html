@@ -1,0 +1,14 @@
+{% extends 'myapp/base.html' %}
+
+{% block body %}
+<form class="grid  h-48 place-content-center" method="POST">
+    {% csrf_token %}
+    <div>
+        <h2 class="font-semibold"> Are you sure you want to delete this item? </h2>
+        <button type="submit"
+                class="px-7 py-2 mx-22 my-6 bg-red-600 text-white rounded hover:bg-red-700">
+            Delete
+        </button>
+    </div>
+</form>
+{% endblock body %}

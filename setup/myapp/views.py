@@ -1,5 +1,4 @@
-from django.shortcuts import render, redirect
-from django.http import HttpResponse
+from django.shortcuts import render, redirect, get_object_or_404
 from .models import Item
 from .forms import ItemForm
 
@@ -29,7 +28,7 @@ def create_item(request):
     return render(request, 'myapp/item_form.html', context) 
 
 def update_item(request, id):
-    item = Item.objects.get(id =id)
+    item = get_object_or_404(Item, id =id)
     form = ItemForm(request.POST or None, instance=item)
     
     if(form.is_valid()):
@@ -41,3 +40,11 @@ def update_item(request, id):
     }
     return render(request, 'myapp/update_item.html', context)
     
+def delete_item(request, id):
+    item = get_object_or_404(Item, id =id)
+    
+    if(request.method == "POST"):
+        item.delete()
+        return redirect('myapp:index')
+    
+    return render(request, 'myapp/delete_item.html') 
