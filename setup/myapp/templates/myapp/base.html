@@ -18,7 +18,7 @@
             
             <div class="space-x-6">
 
-                <a href="">Are you hungry, {{ user.username}}?</a>
+                <a href="{% url 'users:profile' %}">Are you hungry, {{ user.username}}?</a>
                 {% if user.is_authenticated %}
                     <a href="{% url 'users:logout' %}">Logout</a>
                 {% else %}
