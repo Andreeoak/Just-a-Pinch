@@ -1,7 +1,13 @@
 <form method="POST">
-    {% csrf_token %}\
+    {% csrf_token %}
     {{form}}
     <button type="submit">
         Save
     </button>
 </form>
+
+{% if form.errors %}
+    <div class="text-red-600">
+        {{ form.errors }}
+    </div>
+{% endif %}
