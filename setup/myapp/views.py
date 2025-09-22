@@ -1,8 +1,9 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from .models import Item
 from .forms import ItemForm
+from django.contrib.auth.decorators import login_required
 
-
+@login_required
 def index(request):
     context = {
         "item_list" : Item.objects.all()

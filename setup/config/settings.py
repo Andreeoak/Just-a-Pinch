@@ -125,3 +125,6 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 #Redirect to main page, not users/profile/
 LOGIN_REDIRECT_URL = "myapp:index"
+
+#@login_required decorator redirects to correct login page
+LOGIN_URL = "users:login"
