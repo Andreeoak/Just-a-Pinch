@@ -6,5 +6,7 @@
     <h1>
         {{user.username}}
     </h1>
-        
+    <div class="w-40 md:w-56 aspect-square">
+        <img src="{{user.profile.image.url}}" alt="user picture" />
+    </div>   
 {% endblock body %}
